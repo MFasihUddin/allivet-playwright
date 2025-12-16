@@ -1,0 +1,10 @@
+{
+  "pet": {
+    "name": "Jerry",
+    "petType": "Dog",
+    "petBreed":"Mixed Dog Breed",
+    "petGender": "Male",
+    "petWeight":"4",
+    "petBirthday":"02/02/2024"
+  }
+}

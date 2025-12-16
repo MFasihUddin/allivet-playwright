@@ -4,3 +4,6 @@ node_modules/
 # Playwright test reports
 test-results/
 playwright-report/
+
+#learning
+learning/

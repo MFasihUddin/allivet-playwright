@@ -1,12 +1,9 @@
-// pages/login.js
 class LoginPage {
     constructor(page) {
         this.page = page;
-        this.usernameInput = page.locator("input[id='login-form-email']");  // Update selectors as per your app
+        this.usernameInput = page.locator("input[id='login-form-email']"); 
         this.passwordInput = page.locator("input[id='login-form-password']");
-        // this.loginButton = page.locator("(//button[normalize-space()='Login'])[1]");
         this.loginButton = page.getByRole('button', { name: 'Login' });
-
     }
 
     async login(username, password) {
@@ -15,5 +12,4 @@ class LoginPage {
         await this.loginButton.click();
     }
 }
-
 module.exports = { LoginPage };

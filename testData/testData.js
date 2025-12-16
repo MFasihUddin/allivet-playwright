@@ -6,5 +6,8 @@ module.exports = {
     },
     urls: {
         loginPage: "https://sfcc.petfoodking.com/signin"
+    },
+    goto:{
+        myPets: 'a.menuitem[href="https://sfcc.petfoodking.com/my-pets"]'
     }
 };

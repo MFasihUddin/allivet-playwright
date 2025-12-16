@@ -10,6 +10,8 @@ module.exports = defineConfig({
             password: 'KATUjwEny4Nya29u'
         },
         // viewport: { width: 1280, height: 720 }
+        headless: true, 
     },
     testDir: './tests',
 });
+
