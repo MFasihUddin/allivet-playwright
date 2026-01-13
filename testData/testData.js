@@ -1,13 +1,14 @@
-// testData/testData.js
+import { config } from "dotenv";
+import { resolve } from "path";
+
+config({path: resolve(__dirname,'../secrets/.env')});
+
 module.exports = {
     validUser: {
-        username: "qaauto@gmail.com",
-        password: "Admin@123"
+        username: process.env.EMAIL,
+        password: process.env.PASSWORD,
     },
     urls: {
-        loginPage: "https://sfcc.petfoodking.com/signin"
-    },
-    goto:{
-        myPets: 'a.menuitem[href="https://sfcc.petfoodking.com/my-pets"]'
-    }
+        loginPage: process.env.BASE_URL + '/signin'
+},
 };

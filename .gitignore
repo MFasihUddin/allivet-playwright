@@ -7,3 +7,7 @@ playwright-report/
 
 #learning
 learning/
+
+#secrets
+.env
+secrets/.env

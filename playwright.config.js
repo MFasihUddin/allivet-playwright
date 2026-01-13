@@ -1,17 +1,19 @@
 // playwright.config.js
 const { defineConfig } = require('@playwright/test');
+import { config } from 'dotenv';
+import { resolve } from 'path';
+
+config({ path: resolve(__dirname, './secrets/.env') });
 
 module.exports = defineConfig({
+    timeout: 120000,
     use: {
-        headless: false, // run tests in visible browser
-        baseURL: 'https://sfcc.petfoodking.com',
+        headless: true,
+        baseURL: "https://sfcc.petfoodking.com",
         httpCredentials: {
-            username: 'storefront',
-            password: 'KATUjwEny4Nya29u'
+            username: process.env.STORE_USERNAME,
+            password: process.env.STORE_PASSWORD
         },
-        // viewport: { width: 1280, height: 720 }
-        headless: true, 
     },
     testDir: './tests',
 });
-

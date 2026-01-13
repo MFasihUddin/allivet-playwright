@@ -6,5 +6,12 @@
     "petGender": "Male",
     "petWeight":"4",
     "petBirthday":"02/02/2024"
-  }
+  },
+  "shippingAddress": {
+  "address": "908 SE 17th Ct Florida City FL",
+  "city": "Florida City",
+  "zipcode": "33034-3558",
+  "state": "FL",
+  "phonenumber": "1234567895"
+}
 }

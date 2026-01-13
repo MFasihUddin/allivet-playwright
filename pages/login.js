@@ -1,9 +1,20 @@
 class LoginPage {
     constructor(page) {
         this.page = page;
-        this.usernameInput = page.locator("input[id='login-form-email']"); 
+        this.hoverOnSignIn = page.locator('(//div[@class="account-login"])');
+        this.clickOnSignIn = page.locator('(//a[@href="/signin"])[1]');
+        this.usernameInput = page.locator("input[id='login-form-email']");
         this.passwordInput = page.locator("input[id='login-form-password']");
-        this.loginButton = page.getByRole('button', { name: 'Login' });
+        this.loginButton = page.getByRole("button", { name: "Login" });
+    }
+
+    async visitSite() {
+        await this.page.goto("/");
+    }
+
+    async gotoSignInPage() {
+        await this.hoverOnSignIn.hover();
+        await this.clickOnSignIn.click();
     }
 
     async login(username, password) {
