@@ -17,7 +17,7 @@ test.describe("My Pets Page", () => {
         await loginPage.login(process.env.Email, process.env.Password);
     });
 
-    test.skip("Verify that user can add a pet", async ({ page }) => {
+    test("Verify that user can add a pet", async ({ page }) => {
         const petsPage = new MyPetsPage(page);
         await petsPage.gotoMyPetsPage();
         await petsPage.addAPet({ pet });
@@ -31,12 +31,12 @@ test.describe("My Pets Page", () => {
         await expect(page.locator('h6.pet-name')).toHaveText('Jerry');
     })
 
-    test.skip("Verify that the user can upload a pet image", async ({ page }) => {
+    test("Verify that the user can upload a pet image", async ({ page }) => {
         const petsPage = new MyPetsPage(page);
         await petsPage.gotoMyPetsPage();
         await petsPage.uploadPetImage('testData/assets/jerry.png');
-        const petImage = page.locator("div[class='pet-info-wrap'] img[alt='Cat']");
-        await expect(petImage).toBeVisible();
+        const uploadedPetImage = page.locator("(//div[contains(@class, 'pet-images')]//img)[1]");
+        await expect(uploadedPetImage).toHaveAttribute('data-uw-rm-alt-original');
     })
 
     test.skip("Verify user can remove a Pet", async ({ page }) => {
@@ -47,4 +47,3 @@ test.describe("My Pets Page", () => {
     });
 
 });
-3
