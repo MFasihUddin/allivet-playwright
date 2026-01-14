@@ -58,6 +58,12 @@ class MyPetsPage {
         }
     }
 
+    async updatePetInfo (){
+        await this.clickonEdit.click();
+        await this.petName.fill('Jerry2');
+        await this.savePetInfo.click();
+    }
+
     async uploadPetImage(pet_image){
         await this.clickonEdit.click();
         await this.petImageUploadInput.setInputFiles(pet_image);

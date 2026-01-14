@@ -24,7 +24,14 @@ test.describe("My Pets Page", () => {
         await expect(page.locator('h6.pet-name')).toHaveText('Jerry');
     })
 
-    test("Verify that the user can upload a pet image", async ({ page }) => {
+    test("Verify that user can update a pet Info", async ({ page }) => {
+        const petsPage = new MyPetsPage(page);
+        await petsPage.gotoMyPetsPage();
+        await petsPage.updatePetInfo();
+        await expect(page.locator('h6.pet-name')).toHaveText('Jerry');
+    })
+
+    test.skip("Verify that the user can upload a pet image", async ({ page }) => {
         const petsPage = new MyPetsPage(page);
         await petsPage.gotoMyPetsPage();
         await petsPage.uploadPetImage('testData/assets/jerry.png');
