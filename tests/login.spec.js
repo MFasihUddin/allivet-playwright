@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { LoginPage } = require('../pages/login');
 import { config } from "dotenv";
 import { resolve } from "path";
+
 //resolved path to env
 config({ path: resolve(__dirname, '../secrets/.env') });
 

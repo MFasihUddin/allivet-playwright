@@ -1,8 +1,6 @@
 class ProductDetailsPage {
     constructor(page) {
         this.page = page;
-        // One time purchase on PDP locator
-        // this.OneTimePurchase = page.locator('button[class="add-to-cart btn btn-primary"]');
         this.autoshipFrequency = page.locator('#autoship-defaultfrequency');
         this.addToCart = page.locator('[title="add to cart"]');
         this.checkout = page.locator('(//a[@class="btn-primary primary-btn checkout-btn "])[2]');

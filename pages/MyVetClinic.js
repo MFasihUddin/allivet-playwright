@@ -31,7 +31,6 @@ class MyVetClinic {
     async getVetsCount() {
         return await this.vetCount.count();
     }
-
     async addANewVetClinic() {
         await this.addNewVetClinic.click();
         await this.vetClinicName.fill("My Vet Clinic 1");
@@ -39,14 +38,12 @@ class MyVetClinic {
         await this.searchVetClinic.click();
         await this.selectVetClinic.click();
     }
-
     async ensureVetExists() {
         const vetCount = await this.getVetsCount();
         if (vetCount === 0) {
             await this.addANewVetClinic();
         }
     }
-
 
     async addAVetByPhoneNumber() {
         this.selectPhoneNumber.click();

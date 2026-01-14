@@ -32,15 +32,10 @@ test("Verify user can place Rx order", async ({ page }) => {
     await myVetClinic.ensureVetExists();
 
     await search.searchAProduct();
-
     await pdp.addtoCartAndCheckout();
-    //Checkout
-    // await page.pause();
-    // await page.waitForTimeout(1000);
+    
     await checkout.ensureAddress({ shippingAddress });
-
     await checkout.selectShippingMethod();
-    // await page.pause();
     await checkout.ensurePayemntStep(
         process.env.CC_NUMBER,
         process.env.CC_EXP_MONTH,

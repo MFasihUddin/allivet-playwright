@@ -10,9 +10,6 @@ class Checkout {
         this.zipCode = page.locator('#shippingZipCodedefault');
         this.continueToShippingOptions = page.locator('//button[normalize-space()="Continue to Shipping Options"]');
         this.suggestedAddress = page.locator('(//div[@class="pcaitem pcafirstitem pcalastitem pcaselected"])[2]');
-        //OPTIONAL POPUP
-        this.recomended_popup = page.locator('button[class="btn primary-btn ml-auto d-block btn-save-address"]');
-
         //Shipping Method
         this.shippingMethod = page.locator('(//input[@class="form-check-input invisible-radio"])[1]');
         this.continueToPaymentMethod = page.locator('//button[normalize-space()="Continue to Payment Method"]');
@@ -28,7 +25,6 @@ class Checkout {
         this.saveAndContinueToLaststep = page.locator('(//button[normalize-space()="Save and Continue"])[2]');
         //Review & Submit Order
         this.placeOrder = page.locator('//button[normalize-space()="Place Order"]');
-
     }
     //End of Constructor
 
@@ -36,7 +32,6 @@ class Checkout {
         const addressText = await this.checkShippingAddress.textContent();
         return addressText?.trim();
     }
-
     async ensureAddress({ shippingAddress }) {
         const addressfound = await this.isShippingAddressFound();
         if (!addressfound) {
@@ -79,7 +74,7 @@ class Checkout {
             }
         }
     }
-
+    
     async addPaymentInfo(cardNumber, expMonth, expYear, cvv) {
         await this.creditCardNumber.click();
         await this.creditCardNumber.fill(cardNumber);

@@ -1,7 +1,6 @@
 class Search {
     constructor(page) {
         this.page = page;
-        // search locator
         this.search = page.locator("#search-results");
         this.suggestedItem = page.locator('//a[@class="suggestions-link"]');
     }

@@ -8,7 +8,6 @@ const { resolve } = require('path')
 config({ path: resolve(__dirname, "../secrets/.env") });
 
 test("Verify user can place Rx order", async ({ page }) => {
-
     const loginPage = new LoginPage(page);
     const myPetsPage = new MyPetsPage(page);
     const myVetClinic = new MyVetClinic(page);

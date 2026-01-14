@@ -18,13 +18,17 @@ class MyPetsPage {
             name: "Create",
             exact: true,
         });
-        // removing pet locators
+        this.savePetInfo = page.locator('.btn-save.primary-btn.js-button-save');
         this.clickOnRemove = page.locator(
             '(//button[@aria-label="label.deletepet"])[1]'
         );
         this.clickOnDelete = page.locator(
             '(//button[@class="primary-btn delete-confirmation-btn"])'
         );
+        this.clickonEdit = page.locator(
+            '(//button[@aria-label="Edit Pet Profile"])[1]'
+        );
+        this.petImageUploadInput = page.locator('#load-img-pet-');
     }
 
     async gotoMyPetsPage() {
@@ -32,10 +36,8 @@ class MyPetsPage {
     }
 
     async getPetsCount() {
-        // await this.page.waitForLoadState('networkidle');
         return await this.petCount.count();
     }
-
     async addAPet({ pet }) {
         await this.addAPetButton.click();
         await this.petName.fill(pet.name);
@@ -54,6 +56,12 @@ class MyPetsPage {
         if (count === 0) {
             await this.addAPet({ pet });
         }
+    }
+
+    async uploadPetImage(pet_image){
+        await this.clickonEdit.click();
+        await this.petImageUploadInput.setInputFiles(pet_image);
+        await this.savePetInfo.click();
     }
 
     async removeAPet() {
